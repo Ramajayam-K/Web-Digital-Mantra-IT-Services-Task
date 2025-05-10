@@ -33,13 +33,21 @@ Paginated API responses with metadata (links, meta) included.
 Ensures performance and user-friendly output.
 
 ## 📡 API Endpoints
-Method	Endpoint	Description
+
+### Method	Endpoint	Description
+
 GET	/showPostsComments	Retrieve all posts with their associated comments
+
 POST	/createPost	Create a new post
+
 POST	/createComments	Create a new comment
+
 PUT	/updatePost	Update an existing post
+
 PUT	/updateComments	Update an existing comment
+
 DELETE	/deletePost	Delete a post
+
 DELETE	/deleteComments	Delete a comment
 
 ## 🔐 Authentication
@@ -60,7 +68,7 @@ View Posts & Comments: http://127.0.0.1:8000/showPostsComments
 ## 📦 Installation
 1. Clone the repository:
 
-    git clone https://github.com/your-username/blog-api.git
+    git clone https://github.com/Ramajayam-K/Web-Digital-Mantra-IT-Services-Task.git
     cd blog-api
 
 2. Install dependencies:
