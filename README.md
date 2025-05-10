@@ -34,8 +34,8 @@ Ensures performance and user-friendly output.
 
 ## 📡 API Endpoints
 
-## | Method | Endpoint                 | Description                      |
-|--------|--------------------------|----------------------------------|
+| Method | Endpoint                 | Description                     |
+|--------|--------------------------|---------------------------------|
 | GET    | /showPostsComments       | Retrieve all posts and comments |
 | POST   | /createPost              | Create a new post               |
 | POST   | /createComments          | Create a new comment            |
