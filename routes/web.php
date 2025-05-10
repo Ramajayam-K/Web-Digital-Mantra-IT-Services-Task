@@ -1,27 +1,31 @@
 <?php
 
 use App\Http\Controllers\BlogsController;
+use App\Http\Controllers\CityController;
+use App\Http\Controllers\CountryController;
+use App\Http\Controllers\StateController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-    return Inertia::render('login');
+    return Inertia::render('auth.login');
 });
 
 Route::get('dashboard', function () {
-    return Inertia::render('blog');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    return Inertia::render('blogs');
+})->middleware(['auth', 'verified'])->name('blogs');
 
-// Task 1 : Create a RESTful API for a Blog
+// Task 2 :
+// Create a RESTful API for a Blog
 
-// Task 2 : Implement API Rate Limiting
+// Implement API Rate Limiting
 
-// Task 3: Add API Token Authentication
+// ]Add API Token Authentication
 
 
-// Task 4 : Build CRUD API with Eloquent Relationships 
+// Build CRUD API with Eloquent Relationships 
 
-// Task 5 : Paginate API Responses
+// Paginate API Responses
 
 Route::middleware(['auth.sanctum'])->group(function(){
     Route::controller(BlogsController::class)->group(function(){
@@ -37,6 +41,14 @@ Route::middleware(['auth.sanctum'])->group(function(){
         }); 
     });
 });
+
+
+// Task 1:
+
+Route::resource('countries', CountryController::class);
+Route::resource('states', StateController::class);
+Route::resource('cities', CityController::class);
+
 
 
 require __DIR__.'/settings.php';

@@ -17,9 +17,10 @@ return new class extends Migration
             $table->string('image_url')->nullable();
             $table->text('short_description');
             $table->longText('content');
-            $table->interger('created_by');
-            $table->interger('updated_by');
-            $table->timestamps();
+            $table->integer('created_by');
+            $table->integer('updated_by');
+            $table->dateTime('created_at')->useCurrent();
+            $table->dateTime('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
     }
 

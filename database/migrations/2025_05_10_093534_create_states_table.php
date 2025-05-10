@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('states', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('post_id')->constrained()->onDelete('cascade');
-            $table->string('name');
-            $table->string('email')->nullable();
-            $table->text('message');
+            $table->foreignId('country_id')->constrained()->onDelete('cascade');
+            $table->string('state_name');
             $table->dateTime('created_at')->useCurrent();
             $table->dateTime('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('states');
     }
 };
