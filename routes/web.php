@@ -5,16 +5,24 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-    return Inertia::render('Welcome');
-})->name('home');
+    return Inertia::render('login');
+});
 
 Route::get('dashboard', function () {
-    return Inertia::render('Dashboard');
+    return Inertia::render('blog');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 // Task 1 : Create a RESTful API for a Blog
 
 // Task 2 : Implement API Rate Limiting
+
+// Task 3: Add API Token Authentication
+
+
+// Task 4 : Build CRUD API with Eloquent Relationships 
+
+// Task 5 : Paginate API Responses
+
 Route::middleware(['auth.sanctum'])->group(function(){
     Route::controller(BlogsController::class)->group(function(){
         Route::post('/showPostsComments','showPostsComments')->name('showPostsComments')->middleware('throttle:200,1');

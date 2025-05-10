@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('image_url')->nullable();
             $table->text('short_description');
             $table->longText('content');
+            $table->interger('created_by');
+            $table->interger('updated_by');
             $table->timestamps();
         });
     }

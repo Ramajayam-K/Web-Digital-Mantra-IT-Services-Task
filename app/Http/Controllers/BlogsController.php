@@ -6,18 +6,22 @@ use App\Models\comments;
 use App\Models\posts;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 
 class BlogsController extends Controller
 {
     public function index(){
-        return view("blogs");
+        return Inertia::render('Blogs');
     }
 
     public function showPostsComments(){
-        $getComments=comments::all();
-        $getPosts=comments::all();
+        $getComments = comments::paginate(10);
+        $getPosts = posts::paginate(10);
 
-        return response()->json([$getComments,$getPosts]);
+        return response()->json([
+            'posts' => $getPosts,
+            'comments' => $getComments,
+        ]);
     }
 
     public function createPost(Request $request){
@@ -36,6 +40,7 @@ class BlogsController extends Controller
                 'image_url'=>'Path',
                 'short_description'=>$request->short_description,
                 'content'=>$request->content,
+                'created_by'=>Auth::user()->id,
             ]);
             
             $fileName = $fileData->getClientOriginalName() . time() . '.' . $fileData->getClientOriginalExtension();
@@ -113,6 +118,7 @@ class BlogsController extends Controller
             'image_url'=>$ImagePath,
             'short_description'=>$request->short_description,
             'content'=>$request->content,
+            'updated_by'=>Auth::user()->id,
         ]);
 
         if($UpdatePost>0){
