@@ -34,21 +34,16 @@ Ensures performance and user-friendly output.
 
 ## 📡 API Endpoints
 
-### Method	Endpoint	Description
+## | Method | Endpoint                 | Description                      |
+|--------|--------------------------|----------------------------------|
+| GET    | /showPostsComments       | Retrieve all posts and comments |
+| POST   | /createPost              | Create a new post               |
+| POST   | /createComments          | Create a new comment            |
+| PUT    | /updatePost              | Update a post                   |
+| PUT    | /updateComments          | Update a comment                |
+| DELETE | /deletePost              | Delete a post                   |
+| DELETE | /deleteComments          | Delete a comment                |
 
-GET	/showPostsComments	Retrieve all posts with their associated comments
-
-POST	/createPost	Create a new post
-
-POST	/createComments	Create a new comment
-
-PUT	/updatePost	Update an existing post
-
-PUT	/updateComments	Update an existing comment
-
-DELETE	/deletePost	Delete a post
-
-DELETE	/deleteComments	Delete a comment
 
 ## 🔐 Authentication
     This API uses Laravel Sanctum for token-based authentication.
